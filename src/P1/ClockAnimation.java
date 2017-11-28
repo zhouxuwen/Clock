@@ -1,6 +1,9 @@
 package P1;
 
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -21,9 +24,13 @@ public class ClockAnimation extends Application {
 		BorderPane pane = new BorderPane();
 		
 		ClockPane clock = new ClockPane();
-		
+		Calendar calendar = new GregorianCalendar();
+		int hour = calendar.get(Calendar.HOUR_OF_DAY);
+		int minute = calendar.get(Calendar.MINUTE);
+		int second = calendar.get(Calendar.SECOND);
+		String s  = hour + " : " + minute + " : " + second;
 //		TextField text = new TextField();
-		Label label = new Label();
+		Label label = new Label(s);
 		EventHandler<ActionEvent> eventHandler = e -> {
 			label.setText(clock.setCurrentTime());
 		};
